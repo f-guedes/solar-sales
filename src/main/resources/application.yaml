@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    username: solar
+    password: solar
+    url: jdbc:mysql://localhost:3306/solar
