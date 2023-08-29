@@ -17,10 +17,12 @@ import com.promineotech.solar.entity.Customer;
 import com.promineotech.solar.entity.Panel;
 import com.promineotech.solar.entity.PanelManufacturer;
 import com.promineotech.solar.entity.Project;
+import lombok.extern.slf4j.Slf4j;
 import com.promineotech.solar.entity.Inverter;
 import com.promineotech.solar.entity.InverterManufacturer;
 
 @Component
+@Slf4j
 public class DefaultSolarOrderDao implements SolarOrderDao {
 
   @Autowired
@@ -29,6 +31,11 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
   @Override
   public Project saveProject(Customer customer, Float systemSize, Panel panel, Inverter inverter,
       BigDecimal grossPrice) {
+    
+    log.info(
+        "DAO layer log: Customer = {}, System Size in Kw= {}, Panel = {}, Inverter = {}, Gross Price in $= {}",
+        customer.getCustomerId(), systemSize, panel.getPanelManufacturer(), inverter.getInverterManufacturer(), grossPrice);
+    
     SqlParams params = generateInsertSql(systemSize, panel, inverter, grossPrice);
 
     KeyHolder keyholder = new GeneratedKeyHolder();
@@ -152,7 +159,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
 
   /**
    * 
-   * @author Promineo
    *
    */
   class InverterResultSetExtractor implements ResultSetExtractor<Inverter> {
@@ -172,7 +178,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
 
   /**
    * 
-   * @author Promineo
    *
    */
   class PanelResultSetExtractor implements ResultSetExtractor<Panel> {
@@ -194,7 +199,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
 
   /**
    * 
-   * @author Promineo
    *
    */
   class CustomerResultSetExtractor implements ResultSetExtractor<Customer> {

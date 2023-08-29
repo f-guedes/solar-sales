@@ -1,2 +1,2 @@
 Repo for final project of Promineo Tech's backend sofware development course. An online microservice (a **REST** service) that performs CRUD operations on a MySQL database using the Spring Boot Framework. In this example, we're simulating a photovoltaic (solar panels) sales application and database. 
-This application is documented using the OpenAPI documentation standard format and includes test environments that employ the Spring REST Client, _TestRestTemplate_.
+This application is documented using the OpenAPI documentation standard format.

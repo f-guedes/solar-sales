@@ -1,13 +1,13 @@
 -- Customers
-INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('COOPER_ZOE', 'Zoe', 'Cooper', '328.993.3774','28 Russell Street, Quincy, MA');
-INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('DIAZ_LEO', 'Leo', 'Diaz', '959-328-7878', '896 Methuen Street, Dracut, MA');
+INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('COOPER_ZOE', 'Zoe', 'Cooper', '328-993-3774','28 Russell St, Quincy, MA');
+INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('DIAZ_LEO', 'Leo', 'Diaz', '959-328-7878', '896 Methuen St, Dracut, MA');
 INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('HALL_EVERETT', 'Everett', 'Hall', '670-267-2482', '300 Farnum St, North Andover, MA');
 INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('GRAY_MELISSA', 'Melissa', 'Gray', NULL, NULL);
-INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('SANDERS_KYLE', 'Kyle', 'Sanders', '399.377.3854', '11 Michigan Drive, Natick, MA');
+INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('SANDERS_KYLE', 'Kyle', 'Sanders', '399-377-3854', '11 Michigan Dr, Natick, MA');
 INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('THOMAS_LEONEL', 'Leonel', 'Thomas', NULL, '19 Brooks Park, Medford, MA');
-INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('HOFFMAN_EVIE', 'Evie', 'Hoffman', '647.399.2610', '15 Glover Drive, Revere, MA');
-INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('NEWMAN_NATALIA', 'Natalia', 'Newman', '471.669.2887', '24 Deerfield Dr, Scituate, RI');
-INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('NEWMAN_MATTHEW', 'Matthew', 'Newman', '471.669.2887', '24 Deerfield Dr, Scituate, RI');
+INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('HOFFMAN_EVIE', 'Evie', 'Hoffman', '647-399-2610', '15 Glover Dr, Revere, MA');
+INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('NEWMAN_NATALIA', 'Natalia', 'Newman', '471-669-2887', '24 Deerfield Dr, Scituate, RI');
+INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('NEWMAN_MATTHEW', 'Matthew', 'Newman', '471-669-2887', '24 Deerfield Dr, Scituate, RI');
 INSERT INTO customers (customer_id, first_name, last_name, phone, address) VALUES('PHILLIPS_MAKENZIE', 'Makenzie', 'Phillips', '912-727-2957', '1140 Old Baptist Rd, North Kingstown, RI');
 
 

@@ -22,6 +22,11 @@ public class DefaultCustomerUpdateDao implements CustomerUpdateDao {
 
   @Override
   public Customer updateCustomer(Customer customer, String phone, String address) {
+
+    log.info(
+        "DAO layer log: The phone number {} and address {} will be updated for customer {}.",
+        phone, address, customer.getCustomerId());
+
     // @formatter:off
     String sql = "UPDATE "
         + "customers SET phone = :phone, address = :address "
@@ -33,14 +38,13 @@ public class DefaultCustomerUpdateDao implements CustomerUpdateDao {
     params.put("address", address);
 
     jdbcTemplate.update(sql, params);
-    
-    Customer updatedCustomer = fetchCustomer(customer.getCustomerId())
-        .orElseThrow(() -> new NoSuchElementException("Customer with ID "
-            + customer.getCustomerId() + " was not found"));;
-    
-    log.info("The phone number and address for customer " + updatedCustomer.getCustomerId()
-        + " have been successfully updated in the databse");
-    
+
+    Customer updatedCustomer =
+        fetchCustomer(customer.getCustomerId()).orElseThrow(() -> new NoSuchElementException(
+            "Customer with ID " + customer.getCustomerId() + " was not found"));;
+
+
+
     return updatedCustomer;
   }
 

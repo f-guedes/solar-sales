@@ -40,8 +40,8 @@ CREATE TABLE projects (
   inverter_fk int unsigned NOT NULL,
   gross_price decimal(9, 2) NOT NULL,
   PRIMARY KEY (project_pk),
-  FOREIGN KEY (panel_fk) REFERENCES panels (panel_pk) ON DELETE CASCADE,
-  FOREIGN KEY (inverter_fk) REFERENCES inverters (inverter_pk) ON DELETE CASCADE
+  FOREIGN KEY (panel_fk) REFERENCES panels (panel_pk),
+  FOREIGN KEY (inverter_fk) REFERENCES inverters (inverter_pk)
 );
 
 CREATE TABLE customer_projects (

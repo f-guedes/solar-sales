@@ -9,7 +9,7 @@ public interface SolarPanelsDao {
   /**
    * 
    * @param panelManufacturer
-   * @return
+   * @return List<Panel>
    */
   List<Panel> fetchPanels(PanelManufacturer panelManufacturer);
 

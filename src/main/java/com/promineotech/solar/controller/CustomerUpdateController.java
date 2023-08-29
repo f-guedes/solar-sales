@@ -16,8 +16,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.servers.Server;
 
 @RequestMapping("/update")
-@OpenAPIDefinition(info = @Info(title = "Customer Update Service"),
-    servers = {@Server(url = "http://localhost:8080", description = "Local server.")})
 public interface CustomerUpdateController {
 
   // @formatter:off
@@ -55,5 +53,5 @@ public interface CustomerUpdateController {
 
   @PutMapping
   @ResponseStatus(code = HttpStatus.OK)
-  Customer updateCustomer(@RequestParam(required = true) String customerId, String phoneNumber, String address);
+  Customer updateCustomer(@RequestParam(required = true) String customerId, @RequestParam(required = true)String phoneNumber, @RequestParam(required = true)String address);
 }
