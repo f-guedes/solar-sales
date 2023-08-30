@@ -11,7 +11,7 @@ public interface DeleteProjectsDao {
   
   List<Project> fetchProjectsByCustomer (Long customerPk);
 
-  void deleteProjects(List<Project> projectsList);
+  void deleteProjects(List<Project> projectsList, Customer customer);
 
 
 

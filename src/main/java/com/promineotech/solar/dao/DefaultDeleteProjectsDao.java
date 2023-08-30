@@ -3,6 +3,7 @@ package com.promineotech.solar.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -62,6 +63,7 @@ public class DefaultDeleteProjectsDao implements DeleteProjectsDao {
 
       @Override
       public Project mapRow(ResultSet rs, int rowNum) throws SQLException {
+        if (rs != null) {
       // @formatter:off
       return Project.builder()
           .projectPK(rs.getLong("project_pk"))
@@ -70,30 +72,35 @@ public class DefaultDeleteProjectsDao implements DeleteProjectsDao {
           .inverter(fetchInverterForProject(rs.getInt("inverter_fk")))
           .grossPrice(rs.getBigDecimal("gross_price"))
           .build();
-      // @formatter:off
-    }
+      // @formatter:on
+        }
+        return Project.builder().build();
+      }
 
       private Panel fetchPanelForProject(int panelFk) {
         String sql = "SELECT * FROM panels WHERE panel_pk = " + panelFk;
-        
+
         return jdbcTemplate.query(sql, new PanelResultSetExtractor());
       }
 
       private Inverter fetchInverterForProject(int inverterFk) {
         String sql = "SELECT * FROM inverters WHERE inverter_pk = " + inverterFk;
         return jdbcTemplate.query(sql, new InverterResultSetExtractor());
-      }});
-
+      }
+    });
 
   }
 
   @Override
-  public void deleteProjects(List<Project> projectsList) {
+  public void deleteProjects(List<Project> projectsList, Customer customer) {
+    if(projectsList.isEmpty()) {
+      log.info("No projects have been found for customer = {}", customer.getCustomerId() );
+    } else {
     
     Map<String, Object> params = new HashMap<>();
-    
+
     String sql = "DELETE FROM projects WHERE project_pk IN (";
-    
+
     for (int index = 0; index < projectsList.size(); index++) {
       String key = "option_" + index;
       sql += ":" + key + ", ";
@@ -102,17 +109,17 @@ public class DefaultDeleteProjectsDao implements DeleteProjectsDao {
 
     sql = sql.substring(0, sql.length() - 2);
     sql += ")";
-    
+
     jdbcTemplate.update(sql, params);
-    
+    }
   }
-  
-  
-  
+
+
+
   class CustomerResultSetExtractor implements ResultSetExtractor<Customer> {
     @Override
     public Customer extractData(ResultSet rs) throws SQLException {
-      rs.next();
+      if (rs.next()) {
 
       // @formatter:off
       return Customer.builder()
@@ -124,7 +131,8 @@ public class DefaultDeleteProjectsDao implements DeleteProjectsDao {
           .address(rs.getString("address"))
           .build();
       // @formatter:on
-
+      }
+      return null;
     }
   }
 
