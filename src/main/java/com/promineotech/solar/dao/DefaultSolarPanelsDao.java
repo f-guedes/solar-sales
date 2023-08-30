@@ -24,7 +24,7 @@ public class DefaultSolarPanelsDao implements SolarPanelsDao {
   public List<Panel> fetchPanels(PanelManufacturer panelManufacturer) {
     log.info("DAO layer log: Panel Manufacturer selected = {}", panelManufacturer);
 
-    String sql = "SELECT * FROM panels WHERE panel_manufacturer = :manufacturer";
+    String sql = "SELECT * FROM panels WHERE panel_manufacturer = :manufacturer ORDER BY panel_pk";
     
     Map<String, Object> params = new HashMap<>();
     params.put("manufacturer", panelManufacturer.toString());

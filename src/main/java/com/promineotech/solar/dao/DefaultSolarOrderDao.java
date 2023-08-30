@@ -100,9 +100,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
     return params;
   }
 
-  /**
-   * 
-   */
   @Override
   public Optional<Customer> fetchCustomer(String customerId) {
     // @formatter:off
@@ -119,9 +116,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
   }
 
 
-  /**
-   * 
-   */
   @Override
   public Optional<Panel> fetchPanel(PanelManufacturer panelManufacturer, int wattage) {
     // @formatter:off
@@ -139,9 +133,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
   }
 
 
-  /**
-   * 
-   */
   @Override
   public Optional<Inverter> fetchInverter(String inverterManufacturer) {
     // @formatter:off
@@ -157,10 +148,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
     return Optional.ofNullable(jdbcTemplate.query(sql, params, new InverterResultSetExtractor()));
   }
 
-  /**
-   * 
-   *
-   */
   class InverterResultSetExtractor implements ResultSetExtractor<Inverter> {
     @Override
     public Inverter extractData(ResultSet rs) throws SQLException {
@@ -176,10 +163,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
   }
 
 
-  /**
-   * 
-   *
-   */
   class PanelResultSetExtractor implements ResultSetExtractor<Panel> {
     @Override
     public Panel extractData(ResultSet rs) throws SQLException {
@@ -197,10 +180,6 @@ public class DefaultSolarOrderDao implements SolarOrderDao {
     }
   }
 
-  /**
-   * 
-   *
-   */
   class CustomerResultSetExtractor implements ResultSetExtractor<Customer> {
     @Override
     public Customer extractData(ResultSet rs) throws SQLException {

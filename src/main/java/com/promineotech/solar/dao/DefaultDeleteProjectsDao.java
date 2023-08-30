@@ -28,7 +28,7 @@ public class DefaultDeleteProjectsDao implements DeleteProjectsDao {
 
   @Override
   public Optional<Customer> fetchCustomerById(String customerId) {
-    log.info("DAO layer log: Customer selected for projects deletion = {}", customerId);
+    log.info("DAO layer log: Customer submitted to have projects deleted = {}", customerId);
 
     // @formatter:off
     String sql = "" 

@@ -13,8 +13,4 @@ public class Project {
   private Inverter inverter;
   private BigDecimal grossPrice;
   
-//  @JsonIgnore
-//  public Long getProjectPK() {
-//    return projectPK;
-//  }
 }
